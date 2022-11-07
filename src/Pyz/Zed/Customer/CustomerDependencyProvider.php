@@ -27,13 +27,14 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
      * @var string
      */
     public const PYZ_NEWSLETTER_FACADE = 'newsletter facade';
+    public const FACADE_TRAINING = 'FACADE_TRAINING';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return \Spryker\Zed\Kernel\Container
      */
-    public function provideCommunicationLayerDependencies(Container $container)
+    public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $container = parent::provideCommunicationLayerDependencies($container);
 
@@ -44,14 +45,13 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
         $container->set(static::PYZ_NEWSLETTER_FACADE, function (Container $container) {
             return $container->getLocator()->newsletter()->facade();
         });
-
-        return $container;
+        return $this->addTrainingFacade($container);
     }
 
     /**
      * @return \Spryker\Zed\Customer\Dependency\Plugin\CustomerAnonymizerPluginInterface[]
      */
-    protected function getCustomerAnonymizerPlugins()
+    protected function getCustomerAnonymizerPlugins(): array
     {
         return [
             new CustomerUnsubscribePlugin([
@@ -65,11 +65,20 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
     /**
      * @return \Spryker\Zed\Customer\Dependency\Plugin\CustomerTransferExpanderPluginInterface[]
      */
-    protected function getCustomerTransferExpanderPlugins()
+    protected function getCustomerTransferExpanderPlugins(): array
     {
         return [
             new CustomerTransferUsernameExpanderPlugin(),
             new AvailabilityNotificationSubscriptionCustomerTransferExpanderPlugin(),
         ];
+    }
+
+    protected function addTrainingFacade(Container $container): Container
+    {
+        $container->set(static::FACADE_TRAINING, function (Container $container) {
+            return $container->getLocator()->training()->facade();
+        });
+
+        return $container;
     }
 }

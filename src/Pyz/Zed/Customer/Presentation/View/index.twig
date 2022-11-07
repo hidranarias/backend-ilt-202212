@@ -1,0 +1,31 @@
+{% extends '@Spryker:Customer/View/index.twig' %}
+
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Antelope' } %}
+
+        {% block widget_content %}
+
+            {% set customerLocale = customer.locale.localeName | default(null) %}
+
+            <div class="row">
+                <table class="table">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <th class="col-lg-2">
+                            {{ 'Antelope' | trans }}</th>
+                        <td>
+                            {% if antelope is defined %}
+                                {{ antelope.name }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endblock widget_content %}
+    {% endembed %}
+    {{ parent() }}
+{% endblock content %}
+
