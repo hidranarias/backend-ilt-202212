@@ -25,6 +25,7 @@ use Generated\Shared\Transfer\ProductUpdatedTransfer;
 use Monolog\Logger;
 use Pyz\Shared\Console\ConsoleConstants;
 use Pyz\Shared\Scheduler\SchedulerConfig;
+use Pyz\Shared\Training\TrainingConstants;
 use Pyz\Yves\ShopApplication\YvesBootstrap;
 use Pyz\Zed\Application\Communication\ZedBootstrap;
 use Pyz\Zed\Oms\OmsConfig;
@@ -112,7 +113,7 @@ $sprykerBackendHost = getenv('SPRYKER_BE_HOST') ?: 'not-configured-host';
 $sprykerFrontendHost = getenv('SPRYKER_FE_HOST') ?: 'not-configured-host';
 
 $config[KernelConstants::SPRYKER_ROOT] = APPLICATION_ROOT_DIR . '/vendor/spryker';
-
+$config[TrainingConstants::MY_DEFAULT_STORE] = 'Hidran';
 $config[KernelConstants::RESOLVABLE_CLASS_NAMES_CACHE_ENABLED] = true;
 $config[KernelConstants::RESOLVED_INSTANCE_CACHE_ENABLED] = true;
 
