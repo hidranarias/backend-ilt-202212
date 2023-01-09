@@ -13,13 +13,20 @@ use SprykerShop\Yves\CustomerPage\CustomerPageDependencyProvider as SprykerShopC
 use SprykerShop\Yves\CustomerReorderWidget\Plugin\CustomerPage\CustomerReorderWidgetPlugin;
 use SprykerShop\Yves\SessionAgentValidation\Plugin\CustomerPage\UpdateAgentSessionAfterCustomerAuthenticationSuccessPlugin;
 
+/**
+ *
+ */
 class CustomerPageDependencyProvider extends SprykerShopCustomerPageDependencyProvider
 {
+    /**
+     * @var string
+     */
     public const CLIENT_TRAINING = 'CLIENT_TRAINING';
 
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);
+
         return $this->addTrainingClient($container);
     }
 

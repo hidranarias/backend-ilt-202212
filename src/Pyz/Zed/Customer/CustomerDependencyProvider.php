@@ -27,6 +27,9 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
      * @var string
      */
     public const PYZ_NEWSLETTER_FACADE = 'newsletter facade';
+    /**
+     * @var string
+     */
     public const FACADE_TRAINING = 'FACADE_TRAINING';
 
     /**
@@ -45,6 +48,7 @@ class CustomerDependencyProvider extends SprykerCustomerDependencyProvider
         $container->set(static::PYZ_NEWSLETTER_FACADE, function (Container $container) {
             return $container->getLocator()->newsletter()->facade();
         });
+
         return $this->addTrainingFacade($container);
     }
 

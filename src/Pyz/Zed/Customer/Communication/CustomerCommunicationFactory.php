@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Zed\Customer\Communication;
 
 use Pyz\Zed\Customer\CustomerDependencyProvider;
@@ -12,5 +17,4 @@ class CustomerCommunicationFactory extends SprykerCustomerCommunicationFactory
     {
         return $this->getProvidedDependency(CustomerDependencyProvider::FACADE_TRAINING);
     }
-
 }
