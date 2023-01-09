@@ -1,0 +1,13 @@
+{% extends template('page-blank') %}
+
+{% define data = {
+    antelope: _view.antelope
+} %}
+
+{% block body %}
+    {% if data.antelope is not null %}
+        My antelope has the name {{ data.antelope.name }}
+    {% else %}
+        No antelope found :(
+    {% endif %}
+{% endblock %}
