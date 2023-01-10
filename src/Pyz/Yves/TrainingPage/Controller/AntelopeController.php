@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\TrainingPage\Controller;
 
 use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
@@ -20,12 +25,12 @@ class AntelopeController extends AbstractController
             ->findAntelope($antelopeCriteriaTransfer);
 
         $currentStore = $this->getFactory()->getStoreClient()->getCurrentStore();
+
         return $this->view(
             [
                 'antelope' => $antelopeResponseTransfer->getAntelope(),
-                'store' => $currentStore
+                'store' => $currentStore,
             ],
-
             [],
             '@TrainingPage/views/antelope/get.twig'
         );

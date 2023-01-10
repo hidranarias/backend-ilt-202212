@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is part of the Spryker Commerce OS.
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace Pyz\Yves\TrainingPage;
 
 use Spryker\Yves\Kernel\AbstractBundleDependencyProvider;
@@ -7,12 +12,19 @@ use Spryker\Yves\Kernel\Container;
 
 class TrainingPageDependencyProvider extends AbstractBundleDependencyProvider
 {
+    /**
+     * @var string
+     */
     public const CLIENT_TRAINING = 'CLIENT_TRAINING';
+    /**
+     * @var string
+     */
     public const CLIENT_STORE = 'CLIENT_STORE';
 
     public function provideDependencies(Container $container): Container
     {
         $container = $this->addTrainingClient($container);
+
         return $this->addStoreClient($container);
     }
 
