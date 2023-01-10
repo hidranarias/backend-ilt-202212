@@ -32,7 +32,7 @@ class HelloController extends AbstractController
 
         return $this->viewResponse([
             'helloWorldText' => 'Training',
-            'store' => $mystore
+            'store' => $mystore,
             'antelope' => $antelopeTransfer,
         ]);
     }

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Listen for Docker Xdebug",
+            "type": "php",
+            "request": "launch",
+            "runtimeExecutable": "/opt/homebrew/bin/php",
+            "pathMappings": {
+                "/data": "${workspaceFolder}"
+            },
+            "port": [9003, 9000]
+        }
+    ]
+}
