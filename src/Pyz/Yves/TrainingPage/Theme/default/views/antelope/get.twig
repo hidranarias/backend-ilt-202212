@@ -1,10 +1,14 @@
 {% extends template('page-blank') %}
 
 {% define data = {
-    antelope: _view.antelope
+    antelope: _view.antelope,
+    store: _view.store
 } %}
 
 {% block body %}
+    <p> Store: {{ data.store.name }}</p>
+
+
     {% if data.antelope is not null %}
         My antelope has the name {{ data.antelope.name }}
     {% else %}
